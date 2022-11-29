@@ -40,7 +40,12 @@ class HomePage extends StatelessWidget {
                 childAspectRatio: 1.35,
                 children: [
                   Container(
-                    color: Colors.red,
+                    decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(18.0)),
+                    child: Stack(
+                      children: [],
+                    ),
                   ),
                 ],
               ),
