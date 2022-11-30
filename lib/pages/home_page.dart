@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const Text(
                   "Pokedex",
-                  style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 34.0, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
                   height: 30.0,
