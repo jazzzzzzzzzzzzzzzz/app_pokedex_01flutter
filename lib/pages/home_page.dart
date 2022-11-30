@@ -17,8 +17,6 @@ class _HomePageState extends State<HomePage> {
   List pokemons = [];
   List<PokemonModel> pokemonModel = [];
 
-  hola lucero
-
   @override
   initState() {
     super.initState();
@@ -34,7 +32,8 @@ class _HomePageState extends State<HomePage> {
       Map<String, dynamic> myMap = json.decode(response.body);
       //pokemons = myMap["pokemon"];
 
-      pokemonsModel = myMap["pokemon"].map((e)=>PokemonModel.fromJson(e)).toList();
+      pokemonsModel =
+          myMap["pokemon"].map((e) => PokemonModel.fromJson(e)).toList();
       setState(() {});
       //pokemons.forEach((element) {
       //  print(element["type"]);
@@ -49,33 +48,36 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(14.0),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const SizedBox(
-                height: 12.0,
-              ),
-              const Text(
-                "Pokedex",
-                style: TextStyle(fontSize: 34.0, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 30.0,
-              ),
-              GridView.count(
-                  physics: const ScrollPhysics(),
-                  shrinkWrap: true,
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 12.0,
-                  crossAxisSpacing: 12.0,
-                  childAspectRatio: 1.35,
-                  crossAxisCount: 2,
-                  children: pokemonsModel.map((e) => ItemPokemonWidget(
-                    //name: e.name,
-                    //image: e.img,
-                    //types: e.type,
-                    pokemon: e,
-                  )).toList()     
-            ]),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 12.0,
+                ),
+                const Text(
+                  "Pokedex",
+                  style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
+                  height: 30.0,
+                ),
+                GridView.count(
+                    physics: const ScrollPhysics(),
+                    shrinkWrap: true,
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 12.0,
+                    crossAxisSpacing: 12.0,
+                    childAspectRatio: 1.35,
+                    children: pokemonsModel
+                        .map((e) => ItemPokemonWidget(
+                              //name: e.name,
+                              //image: e.img,
+                              //types: e.type,
+                              pokemon: e,
+                            ))
+                        .toList()),
+              ],
+            ),
           ),
         ),
       ),
