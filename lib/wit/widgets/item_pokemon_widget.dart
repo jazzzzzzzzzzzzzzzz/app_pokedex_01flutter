@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 class ItemPokemonWidget extends StatelessWidget {
   String name;
   String image;
+  List<String> types;
 
-  ItemPokemonWidget({required this.name, required this.image});
+  ItemPokemonWidget({
+    required this.name,
+    required this.image,
+    required this.types,
+  });
 
   @override
   Widget build(BuildContext context) {
