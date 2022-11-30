@@ -17,6 +17,8 @@ class _HomePageState extends State<HomePage> {
   List pokemons = [];
   List<PokemonModel> pokemonModel = [];
 
+  hola lucero
+
   @override
   initState() {
     super.initState();
