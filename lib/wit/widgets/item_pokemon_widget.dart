@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ItemPokemonWidget extends StatelessWidget {
-  const ItemPokemonWidget({Key? key}) : super(key: key);
+  String name;
+  String image;
+
+  ItemPokemonWidget({required this.name, required this.image});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Color.fromARGB(255, 207, 85, 76),
+          color: Color.fromARGB(255, 76, 167, 84),
           borderRadius: BorderRadius.circular(18.0)),
       child: Stack(
         children: [
@@ -26,7 +29,7 @@ class ItemPokemonWidget extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "Moltres",
+                  name,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16.0,
@@ -60,8 +63,7 @@ class ItemPokemonWidget extends StatelessWidget {
           Positioned(
             bottom: 0,
             right: 0,
-            child: Image.network(
-                "https://serebii.net/swordshield/pokemon/small/146-g.png"),
+            child: Image.network(image),
           ),
         ],
       ),

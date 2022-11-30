@@ -5,11 +5,21 @@ import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   //Uri
   //Url
 
-  List<Map<String, dynamic>> pokemons = [];
+  List pokemons = [];
+
+  @override
+  initState() {
+    super.initState();
+  }
 
   getDataPokemon() async {
     Uri _uri = Uri.parse(
@@ -19,6 +29,7 @@ class HomePage extends StatelessWidget {
     if (response.statusCode == 200) {
       Map<String, dynamic> myMap = json.decode(response.body);
       pokemons = myMap["pokemon"];
+      setState(() {});
       //pokemons.forEach((element) {
       //  print(element["type"]);
       // });
@@ -45,18 +56,18 @@ class HomePage extends StatelessWidget {
                 height: 30.0,
               ),
               GridView.count(
-                shrinkWrap: true,
-                crossAxisCount: 2,
-                mainAxisSpacing: 12.0,
-                crossAxisSpacing: 12.0,
-                childAspectRatio: 1.35,
-                children: [
-                  ItemPokemonWidget(),
-                  ItemPokemonWidget(),
-                  ItemPokemonWidget(),
-                  ItemPokemonWidget(),
-                ],
-              ),
+                  physics: const ScrollPhysics(),
+                  shrinkWrap: true,
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 12.0,
+                  crossAxisSpacing: 12.0,
+                  childAspectRatio: 1.35,
+                  children: pokemons
+                      .map((e) => ItemPokemonWidget(
+                            name: e["name"],
+                            image: e["img"],
+                          ))
+                      .toList()),
             ]),
           ),
         ),
