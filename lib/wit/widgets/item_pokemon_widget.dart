@@ -2,14 +2,17 @@ import 'package:app_pokedex_01flutter/wit/widgets/item_type_widget.dart';
 import 'package:flutter/material.dart';
 
 class ItemPokemonWidget extends StatelessWidget {
-  String name;
-  String image;
-  List<String> types;
+  //String name;
+  //String image;
+  //List<String> types;
+
+  PokemonModel pokemon;
 
   ItemPokemonWidget({
-    required this.name,
-    required this.image,
-    required this.types,
+    //required this.name,
+    //required this.image,
+    // required this.types,
+    required this.pokemon,
   });
 
   @override
