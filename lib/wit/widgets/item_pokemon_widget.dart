@@ -1,6 +1,10 @@
 import 'package:app_pokedex_01flutter/wit/widgets/item_type_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/pokemon_model.dart';
+import '../../pages/detail_page.dart';
+import '../generall/colors.dart';
+
 class ItemPokemonWidget extends StatelessWidget {
   // String name;
   // String image;
