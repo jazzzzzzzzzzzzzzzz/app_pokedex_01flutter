@@ -1,3 +1,4 @@
+import 'package:app_pokedex_01flutter/wit/widgets/item_type_widget.dart';
 import 'package:flutter/material.dart';
 
 class ItemPokemonWidget extends StatelessWidget {
@@ -41,27 +42,17 @@ class ItemPokemonWidget extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 6.0),
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 14.0, vertical: 4.0),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.27),
-                    borderRadius: BorderRadius.circular(10.0),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.white.withOpacity(0.04),
-                          offset: const Offset(4, 4),
-                          blurRadius: 12.0)
-                    ],
-                  ),
-                  child: Text(
-                    "Dark",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                )
+
+                //Column(
+                //  children: types.map((e) => ItemTypeWidget()) .toList(),
+
+                //),
+
+                ...types
+                    .map((e) => ItemTypeWidget(
+                          text: e,
+                        ))
+                    .toList(),
               ],
             ),
           ),
