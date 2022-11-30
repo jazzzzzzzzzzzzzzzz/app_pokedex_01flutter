@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
 
+import '../models/pokemon_model.dart';
+
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
@@ -32,7 +34,7 @@ class _HomePageState extends State<HomePage> {
       Map<String, dynamic> myMap = json.decode(response.body);
       //pokemons = myMap["pokemon"];
 
-      pokemonsModel =
+      pokemonModel =
           myMap["pokemon"].map((e) => PokemonModel.fromJson(e)).toList();
       setState(() {});
       //pokemons.forEach((element) {
@@ -68,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                     mainAxisSpacing: 12.0,
                     crossAxisSpacing: 12.0,
                     childAspectRatio: 1.35,
-                    children: pokemonsModel
+                    children: pokemonModel
                         .map((e) => ItemPokemonWidget(
                               //name: e.name,
                               //image: e.img,
